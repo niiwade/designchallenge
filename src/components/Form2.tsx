@@ -88,68 +88,78 @@ export default function SettingsForm1() {
   return (
 
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1 mt-7 grid grid-cols-6 gap-6">
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
+            <FormItem className="col-span-6 sm:col-span-3" >
+              <FormLabel>Company’s Name</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="Sixteen Inc." {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name. It can be your real name or a
-                pseudonym. You can only change this once every 30 days.
-              </FormDescription>
+          
               <FormMessage />
             </FormItem>
           )}
         />
 
-          <div className="md:col-gap-7 mb-5  space-x-5 grid md:grid-cols-2">
-          <input className="col-span-1 w-full border-b py-3 text-sm outline-none    focus:border-black" type="text" placeholder="Name" name="name" />
-          <input className="col-span-1 w-full border-b py-3 text-sm outline-none  focus:border-black" type="email" placeholder="Email" name="email" />
+<FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem className="col-span-6 sm:col-span-3" >
+              <FormLabel>Company’s Website</FormLabel>
+              <FormControl>
+                <Input placeholder="https://sixteen.life/" {...field} />
+              </FormControl>
+          
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        </div>
+<FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem className="col-span-6 sm:col-span-3" >
+              <FormLabel>Company’s Linkedin</FormLabel>
+              <FormControl>
+                <Input placeholder="https://www.linkedin.com/company/sixteenlife" {...field} />
+              </FormControl>
+          
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-      
+<FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem className="col-span-6 sm:col-span-3" >
+              <FormLabel className="text-sm font-medium text-gray-900 block mb-2">Company’s Industry</FormLabel>
+              <FormControl>
+                <Input placeholder="Digital Wellbeing" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-
-        <div>
-          {fields.map((field, index) => (
-            <FormField
-              control={form.control}
-              key={field.id}
-              name={`urls.${index}.value`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className={cn(index !== 0 && "sr-only")}>
-                    URLs
-                  </FormLabel>
-                  <FormDescription className={cn(index !== 0 && "sr-only")}>
-                    Add links to your website, blog, or social media profiles.
-                  </FormDescription>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          ))}
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            className="mt-2"
-            onClick={() => append({ value: "" })}
-          >
-            Add URL
-          </Button>
-        </div>
-        <Button type="submit">Update profile</Button>
       </form>
     </Form>
+
+
+
+
   )
+
+
+  
+
+
 }
+
+

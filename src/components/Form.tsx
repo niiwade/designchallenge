@@ -88,24 +88,54 @@ export default function  SettingsForm() {
   return (
     
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-5">
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Company description</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="Redesign your digital life, reduce your screen time" {...field} />
               </FormControl>
               <FormDescription>
-                This is your public display name. It can be your real name or a
-                pseudonym. You can only change this once every 30 days.
+              Your detailed company description
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+
+<FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>What are your company goals?</FormLabel>
+              <FormControl>
+                <Input placeholder="Help everyone to be more conscious of where they are spending their time" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+
+<FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Headquarters</FormLabel>
+              <FormControl>
+                <Input placeholder="Delhi, India" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        
   
       
         <div>
