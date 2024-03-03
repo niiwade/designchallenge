@@ -36,7 +36,7 @@ const settingsFormSchema = z.object({
     .max(30, {
       message: "Company Description must not be longer than 30 characters.",
     }),
-    companygoals: z
+  companygoals: z
     .string()
     .min(2, {
       message: "Company Goals must be at least 10 characters.",
@@ -44,7 +44,7 @@ const settingsFormSchema = z.object({
     .max(30, {
       message: "Company Goals must not be longer than 30 characters.",
     }),
-    hq: z
+  hq: z
     .string()
     .min(2, {
       message: "Country Name must be at least 3 characters",
@@ -52,9 +52,9 @@ const settingsFormSchema = z.object({
     .max(30, {
       message: "Country Name must not be longer than 30 characters.",
     }),
-   urls: z.string().url("Please enter a valid URL"),
-    round: z.string().nonempty("Please select a funding round")
-  
+  urls: z.string().url("Please enter a valid URL"),
+  round: z.string().nonempty("Please select a funding round")
+
 
 })
 
@@ -90,9 +90,9 @@ export default function SettingsForm() {
           name="companyDescription"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Company description</FormLabel>
+              <FormLabel className="text-[##17171F]">Company description</FormLabel>
               <FormControl>
-                <Input placeholder="Redesign your digital life, reduce your screen time" {...field} />
+                <Input className="text-[##17171F]" placeholder="Redesign your digital life, reduce your screen time" {...field} />
               </FormControl>
               <FormDescription>
                 Your detailed company description
@@ -107,9 +107,9 @@ export default function SettingsForm() {
           name="companygoals"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>What are your company goals?</FormLabel>
+              <FormLabel className="text-[##17171F]" >What are your company goals?</FormLabel>
               <FormControl>
-                <Input placeholder="Help everyone to be more conscious of where they are spending their time" {...field} />
+                <Input className="text-[##17171F]" placeholder="Help everyone to be more conscious of where they are spending their time" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -122,9 +122,9 @@ export default function SettingsForm() {
           name="hq"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Headquarters</FormLabel>
+              <FormLabel className="text-[##17171F]" >Headquarters</FormLabel>
               <FormControl>
-                <Input placeholder="Delhi, India" {...field} />
+                <Input className="text-[##17171F]" placeholder="Delhi, India" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -167,20 +167,16 @@ export default function SettingsForm() {
           name="urls"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
-              <FormLabel>FAQs</FormLabel>
+              <FormLabel className="text-[##17171F]" >FAQs</FormLabel>
 
               <FormControl>
-                <Input placeholder="https://sixteen.life/faq" {...field} />
+                <Input className="text-[##17171F]" placeholder="https://sixteen.life/faq" {...field} />
               </FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-
-
-
-
 
       </form>
     </Form>

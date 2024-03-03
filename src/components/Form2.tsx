@@ -81,9 +81,9 @@ export default function SettingsForm1() {
           name="companyname"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
-              <FormLabel>Company’s Name</FormLabel>
+              <FormLabel  className="text-[##17171F]" >Company’s Name</FormLabel>
               <FormControl>
-                <Input placeholder="Sixteen Inc." {...field} />
+                <Input  className="text-[##17171F]"  placeholder="Sixteen Inc." {...field} />
               </FormControl>
           
               <FormMessage />
@@ -96,9 +96,9 @@ export default function SettingsForm1() {
           name="companywebsite"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
-              <FormLabel>Company’s Website</FormLabel>
+              <FormLabel  className="text-[##17171F]" >Company’s Website</FormLabel>
               <FormControl>
-                <Input placeholder="https://sixteen.life/" {...field} />
+                <Input  className="text-[##17171F]"  placeholder="https://sixteen.life/" {...field} />
               </FormControl>
           
               <FormMessage />
@@ -111,9 +111,9 @@ export default function SettingsForm1() {
           name="companylinkedin"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
-              <FormLabel>Company’s Linkedin</FormLabel>
+              <FormLabel  className="text-[##17171F]" >Company’s Linkedin</FormLabel>
               <FormControl>
-                <Input placeholder="https://www.linkedin.com/company/sixteenlife" {...field} />
+                <Input  className="text-[##17171F]"  placeholder="https://www.linkedin.com/company/sixteenlife" {...field} />
               </FormControl>
           
               <FormMessage />
@@ -126,9 +126,9 @@ export default function SettingsForm1() {
           name="companyindustry"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
-              <FormLabel className="text-sm font-medium text-gray-900 block mb-2">Company’s Industry</FormLabel>
+              <FormLabel className="text-sm font-medium   block mb-2">Company’s Industry</FormLabel>
               <FormControl>
-                <Input placeholder="Digital Wellbeing" {...field} />
+                <Input  className="text-[##17171F]"  placeholder="Digital Wellbeing" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

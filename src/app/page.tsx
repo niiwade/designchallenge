@@ -3,10 +3,9 @@ import SettingsForm from "@/components/Form";
 import SettingsForm1 from "@/components/Form2";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
+
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Search } from "lucide-react";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
@@ -18,9 +17,6 @@ export default function Home() {
       <div className="mx-4 min-h-screen max-w-screen-xl sm:mx-8 xl:mx-auto">
         <h1 className=" py-6 text-4xl font-semibold">Settings</h1>
         <div className="grid grid-cols-8 pt-3 sm:grid-cols-10">
-
-
-
 
           <div className="col-span-10 overflow-hidden  sm:px-8 ">
             <div className="pt-4">
@@ -42,34 +38,29 @@ export default function Home() {
                 </TabsList>
                 <TabsContent value="company" className="space-y-4">
 
-                  <div className="grid  py-6 sm:grid-cols-2">
-                    <div className="">
+                <div className="grid  py-6 sm:grid-cols-2">
+  <div className="mt-4 flex items-center sm:justify-center mx-auto py-5 sm:order-first lg:order-2 "> 
+    <div className="flex flex-row gap-3">
+      <Button variant='outline' type="submit">Cancel</Button>
+      <Button type="submit">Save Changes</Button>
+    </div>
+  </div>
+  <div className="sm:order-second">
+    <div className="flex items-center">
+      <Avatar className="h-84 w-84">
+        <AvatarImage src="/companylogo.png" />
+      </Avatar>
 
-                      <div className="flex items-center">
-                        <Avatar className="h-84 w-84">
-                          <AvatarImage src="/companylogo.png" />
-                        </Avatar>
-
-
-                        <div className="ml-7 flex flex-col">
-                          <div className="flex flex-row gap-3">
-                            <Button variant='destructive' type="submit">Remove</Button>
-                            <Button type="submit">Change Photo</Button>
-                          </div>
-                          <div className="leading-snug text-xs mt-6 text-gray-600">or drag and drop (SVG, PNG, JPG)</div>
-                        </div>
-                      </div>
-
-
-                    </div>
-
-                    <div className="mt-4 flex items-center sm:justify-end">
-                      <div className="flex flex-row gap-3">
-                        <Button variant='outline' type="submit">Cancel</Button>
-                        <Button type="submit">Save Changes</Button>
-                      </div>
-                    </div>
-                  </div>
+      <div className="ml-7 flex flex-col">
+        <div className="flex flex-row gap-3">
+          <Button variant='destructive' type="submit">Remove</Button>
+          <Button type="submit" variant='outline'>Change Photo</Button>
+        </div>
+        <div className="leading-snug text-sm mt-6 text-gray-400">or drag and drop (SVG, PNG, JPG)</div>
+      </div>
+    </div>
+  </div>
+</div>
 
                 </TabsContent>
               </Tabs>

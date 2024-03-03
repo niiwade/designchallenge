@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.css";
 
+import Footer from "@/components/Footer";
+
 
 const montreal =localFont({src:'../../font/PPNeueMontreal-Medium.otf'})
 
@@ -17,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montreal.className}>{children}</body>
+      <body className={montreal.className}>
+        {children}</body>
+        <Footer/>
     </html>
   );
 }
