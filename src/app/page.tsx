@@ -90,15 +90,15 @@ export default function Home() {
                 </div>
 
                 <div className=" px-2 py-1 rounded-md ">
-                <Button type="submit" className="rounded-full" size='sm'>10-100</Button>
+                <Button type="submit" variant='outline'  className="rounded-full" size='sm'>10-100</Button>
                 </div>
 
-                <div className=" text-white px-2 py-1 rounded-md ">
-                <Button type="submit" className="rounded-full" size='sm'>100-500</Button>
+                <div className="  px-2 py-1 rounded-md ">
+                <Button type="submit"  variant='outline' className="rounded-full" size='sm'>100-500</Button>
                 </div>
 
-                <div className=" text-white px-2 py-1 rounded-md ">
-                <Button type="submit" className="rounded-full" size='sm'>1000+</Button>
+                <div className="  px-2 py-1 rounded-md ">
+                <Button type="submit"  variant='outline' className="rounded-full" size='sm'>1000+</Button>
                 </div>
 
 

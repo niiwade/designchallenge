@@ -27,54 +27,41 @@ import {
 import { Textarea } from "../components/ui/textarea"
 import { toast } from "../components/ui/use-toast"
 
-const profileFormSchema = z.object({
-  username: z
+const settingsForm2Schema= z.object({
+  companyname: z
     .string()
-    .min(2, {
-      message: "Username must be at least 2 characters.",
+    .min(5, {
+      message: "Company Name must be at least 5 characters.",
     })
     .max(30, {
-      message: "Username must not be longer than 30 characters.",
+      message: "Company Name must not be longer than 30 characters.",
     }),
-  email: z
-    .string({
-      required_error: "Please select an email to display.",
+    companywebsite: z.string().url("Please enter a valid URL"),
+    companylinkedin: z.string().url("Please enter a valid URL"),
+    companyindustry: z
+    .string()
+    .min(5, {
+      message: "Company Name must be at least 5 characters.",
     })
-    .email(),
-  bio: z.string().max(160).min(4),
-  urls: z
-    .array(
-      z.object({
-        value: z.string().url({ message: "Please enter a valid URL." }),
-      })
-    )
-    .optional(),
+    .max(30, {
+      message: "Company Name must not be longer than 30 characters.",
+    }),
+
 })
 
-type ProfileFormValues = z.infer<typeof profileFormSchema>
+type SettingsForm2Values = z.infer<typeof settingsForm2Schema>
 
-// This can come from your database or API.
-const defaultValues: Partial<ProfileFormValues> = {
-  bio: "I own a computer.",
-  urls: [
-    { value: "https://shadcn.com" },
-    { value: "http://twitter.com/shadcn" },
-  ],
-}
 
 export default function SettingsForm1() {
-  const form = useForm<ProfileFormValues>({
-    resolver: zodResolver(profileFormSchema),
-    defaultValues,
+  const form = useForm<SettingsForm2Values>({
+    resolver: zodResolver(settingsForm2Schema),
+
     mode: "onChange",
   })
 
-  const { fields, append } = useFieldArray({
-    name: "urls",
-    control: form.control,
-  })
 
-  function onSubmit(data: ProfileFormValues) {
+
+  function onSubmit(data: SettingsForm2Values) {
     toast({
       title: "You submitted the following values:",
       description: (
@@ -91,7 +78,7 @@ export default function SettingsForm1() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1 mt-7 grid grid-cols-6 gap-6">
         <FormField
           control={form.control}
-          name="username"
+          name="companyname"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
               <FormLabel>Company’s Name</FormLabel>
@@ -106,7 +93,7 @@ export default function SettingsForm1() {
 
 <FormField
           control={form.control}
-          name="username"
+          name="companywebsite"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
               <FormLabel>Company’s Website</FormLabel>
@@ -121,7 +108,7 @@ export default function SettingsForm1() {
 
 <FormField
           control={form.control}
-          name="username"
+          name="companylinkedin"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
               <FormLabel>Company’s Linkedin</FormLabel>
@@ -136,7 +123,7 @@ export default function SettingsForm1() {
 
 <FormField
           control={form.control}
-          name="username"
+          name="companyindustry"
           render={({ field }) => (
             <FormItem className="col-span-6 sm:col-span-3" >
               <FormLabel className="text-sm font-medium text-gray-900 block mb-2">Company’s Industry</FormLabel>
