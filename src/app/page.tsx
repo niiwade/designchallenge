@@ -1,6 +1,8 @@
 
 import SettingsForm from "@/components/Form";
 import SettingsForm1 from "@/components/Form";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Search } from "lucide-react";
@@ -168,17 +170,29 @@ export default function Home() {
 
             <div className="grid border-b py-6 sm:grid-cols-2">
               <div className="">
-                <h2 className="text-lg font-semibold leading-4 text-slate-700">Comments</h2>
-                <p className="font- text-slate-600">Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis neque.</p>
-              </div>
-              <div className="mt-4 flex items-center sm:justify-end">
-                <div className="flex flex-col gap-3">
-                  <label className="relative inline-flex cursor-pointer items-center">
-                    <input type="checkbox" value="" id="push" className="peer sr-only" checked />
-                    <div className="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                    <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Push</span>
-                  </label>
 
+              <div className="flex items-center">
+                <Avatar className="h-84 w-84">
+                <AvatarImage src="/companylogo.png"/>
+                </Avatar>
+               
+
+                  <div className="ml-7 flex flex-col">
+                  <div className="flex flex-row gap-3">
+                  <Button variant='destructive' type="submit">Remove</Button>
+                  <Button type="submit">Change Photo</Button>
+                </div>
+                    <div className="leading-snug text-xs mt-6 text-gray-600">or drag and drop (SVG, PNG, JPG)</div>
+                  </div>
+                </div>
+
+             
+              </div>
+            
+              <div className="mt-4 flex items-center sm:justify-end">
+                <div className="flex flex-row gap-3">
+                  <Button variant='outline' type="submit">Cancel</Button>
+                  <Button type="submit">Save Changes</Button>
                 </div>
               </div>
             </div>
@@ -192,7 +206,7 @@ export default function Home() {
             <SettingsForm />
             <hr className="mt-4 mb-8" />
 
-          
+
             <div className="flex items-center">
 
               <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-3">
