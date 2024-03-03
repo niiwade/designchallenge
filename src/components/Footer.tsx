@@ -1,4 +1,4 @@
-
+import Link from "next/link"
 
 export default function Footer() {
   return (
@@ -9,16 +9,16 @@ export default function Footer() {
     <div className="mx-auto flex max-w-screen-3xl flex-col gap-y-4 px-10 py-3 text-center text-gray-500 sm:flex-row sm:justify-between sm:text-left">
       <div className="">Valley Sales Inc.</div>
       <div className="space-x-8">
-        <a className="text-textgray" href="#">Contact Support</a>
+        <Link className="text-textgray" href="#">Contact Support</Link>
       
-        <a className="text-textgray " href="#">About Us</a>
+        <Link className="text-textgray " href="#">About Us</Link>
 
-        <a className="text-textgray " href="#">Terms</a>
+        <Link className="text-textgray " href="#">Terms</Link>
 
-        <a className=" text-textgray" href="#">Privacy</a>
+        <Link className=" text-textgray" href="#">Privacy</Link>
 
-        <a className="text-textgray " href="#">Linkedin</a>
-        <a className="text-textgray " href="#">X</a>
+        <Link className="text-textgray " href="#">Linkedin</Link>
+        <Link className="text-textgray " href="#">X</Link>
       </div>
     </div>
   </div>
