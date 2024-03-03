@@ -27,54 +27,50 @@ import {
 import { Textarea } from "../components/ui/textarea"
 import { toast } from "../components/ui/use-toast"
 
-const profileFormSchema = z.object({
-  username: z
+const settingsFormSchema = z.object({
+  companyDescription: z
     .string()
     .min(2, {
-      message: "Username must be at least 2 characters.",
+      message: "Company Description must be at least 10 characters.",
     })
     .max(30, {
-      message: "Username must not be longer than 30 characters.",
+      message: "Company Description must not be longer than 30 characters.",
     }),
-  email: z
-    .string({
-      required_error: "Please select an email to display.",
+    companygoals: z
+    .string()
+    .min(2, {
+      message: "Company Goals must be at least 10 characters.",
     })
-    .email(),
-  bio: z.string().max(160).min(4),
-  urls: z
-    .array(
-      z.object({
-        value: z.string().url({ message: "Please enter a valid URL." }),
-      })
-    )
-    .optional(),
+    .max(30, {
+      message: "Company Goals must not be longer than 30 characters.",
+    }),
+    hq: z
+    .string()
+    .min(2, {
+      message: "Country Name must be at least 3 characters",
+    })
+    .max(30, {
+      message: "Country Name must not be longer than 30 characters.",
+    }),
+   urls: z.string().url("Please enter a valid URL"),
+    round: z.string().nonempty("Please select a funding round")
+  
+
 })
 
-type ProfileFormValues = z.infer<typeof profileFormSchema>
+type SettingsFormValues = z.infer<typeof settingsFormSchema>
 
-// This can come from your database or API.
-const defaultValues: Partial<ProfileFormValues> = {
-  bio: "I own a computer.",
-  urls: [
-    { value: "https://shadcn.com" },
-    { value: "http://twitter.com/shadcn" },
-  ],
-}
 
-export default function  SettingsForm() {
-  const form = useForm<ProfileFormValues>({
-    resolver: zodResolver(profileFormSchema),
-    defaultValues,
+
+export default function SettingsForm() {
+  const form = useForm<SettingsFormValues>({
+    resolver: zodResolver(settingsFormSchema),
     mode: "onChange",
   })
 
-  const { fields, append } = useFieldArray({
-    name: "urls",
-    control: form.control,
-  })
 
-  function onSubmit(data: ProfileFormValues) {
+
+  function onSubmit(data: SettingsFormValues) {
     toast({
       title: "You submitted the following values:",
       description: (
@@ -86,12 +82,12 @@ export default function  SettingsForm() {
   }
 
   return (
-    
+
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-5">
         <FormField
           control={form.control}
-          name="username"
+          name="companyDescription"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Company description</FormLabel>
@@ -99,16 +95,16 @@ export default function  SettingsForm() {
                 <Input placeholder="Redesign your digital life, reduce your screen time" {...field} />
               </FormControl>
               <FormDescription>
-              Your detailed company description
+                Your detailed company description
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
 
-<FormField
+        <FormField
           control={form.control}
-          name="username"
+          name="companygoals"
           render={({ field }) => (
             <FormItem>
               <FormLabel>What are your company goals?</FormLabel>
@@ -121,9 +117,9 @@ export default function  SettingsForm() {
         />
 
 
-<FormField
+        <FormField
           control={form.control}
-          name="username"
+          name="hq"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Headquarters</FormLabel>
@@ -135,43 +131,64 @@ export default function  SettingsForm() {
           )}
         />
 
-        
-  
-      
-        <div>
-          {fields.map((field, index) => (
-            <FormField
-              control={form.control}
-              key={field.id}
-              name={`urls.${index}.value`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className={cn(index !== 0 && "sr-only")}>
-                    URLs
-                  </FormLabel>
-                  <FormDescription className={cn(index !== 0 && "sr-only")}>
-                    Add links to your website, blog, or social media profiles.
-                  </FormDescription>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          ))}
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            className="mt-2"
-            onClick={() => append({ value: "" })}
-          >
-            Add URL
-          </Button>
-        </div>
-        <Button type="submit">Update profile</Button>
+
+
+      </form>
+
+
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1 mt-7 pb-10 grid grid-cols-6 gap-6">
+        <FormField
+          control={form.control}
+          name="round"
+          render={({ field }) => (
+            <FormItem className="col-span-6 sm:col-span-3" >
+              <FormLabel>Funding Round</FormLabel>
+
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Seed" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="m@example.com">seed1</SelectItem>
+                  <SelectItem value="m@google.com">seed2</SelectItem>
+                  <SelectItem value="m@support.com">seed3</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="urls"
+          render={({ field }) => (
+            <FormItem className="col-span-6 sm:col-span-3" >
+              <FormLabel>FAQs</FormLabel>
+
+              <FormControl>
+                <Input placeholder="https://sixteen.life/faq" {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+
+
+
+
       </form>
     </Form>
+
+
+
+
+
+
   )
 }

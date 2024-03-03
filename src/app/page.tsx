@@ -28,68 +28,93 @@ export default function Home() {
                 <TabsList>
                   <TabsTrigger value="profile" disabled>Your Profile</TabsTrigger>
                   <TabsTrigger value="company" >
-                  Company Info
+                    Company Info
                   </TabsTrigger>
                   <TabsTrigger value="seats" disabled>
-                  Manage Seats
+                    Manage Seats
                   </TabsTrigger>
                   <TabsTrigger value="contact" disabled>
-                  Do not Contact
+                    Do not Contact
                   </TabsTrigger>
                   <TabsTrigger value="integrations" disabled>
-                  Integrations
+                    Integrations
                   </TabsTrigger>
                 </TabsList>
                 <TabsContent value="company" className="space-y-4">
-              
-                <div className="grid  py-6 sm:grid-cols-2">
-              <div className="">
 
-              <div className="flex items-center">
-                <Avatar className="h-84 w-84">
-                <AvatarImage src="/companylogo.png"/>
-                </Avatar>
-               
+                  <div className="grid  py-6 sm:grid-cols-2">
+                    <div className="">
 
-                  <div className="ml-7 flex flex-col">
-                  <div className="flex flex-row gap-3">
-                  <Button variant='destructive' type="submit">Remove</Button>
-                  <Button type="submit">Change Photo</Button>
-                </div>
-                    <div className="leading-snug text-xs mt-6 text-gray-600">or drag and drop (SVG, PNG, JPG)</div>
+                      <div className="flex items-center">
+                        <Avatar className="h-84 w-84">
+                          <AvatarImage src="/companylogo.png" />
+                        </Avatar>
+
+
+                        <div className="ml-7 flex flex-col">
+                          <div className="flex flex-row gap-3">
+                            <Button variant='destructive' type="submit">Remove</Button>
+                            <Button type="submit">Change Photo</Button>
+                          </div>
+                          <div className="leading-snug text-xs mt-6 text-gray-600">or drag and drop (SVG, PNG, JPG)</div>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                    <div className="mt-4 flex items-center sm:justify-end">
+                      <div className="flex flex-row gap-3">
+                        <Button variant='outline' type="submit">Cancel</Button>
+                        <Button type="submit">Save Changes</Button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-
-             
-              </div>
-            
-              <div className="mt-4 flex items-center sm:justify-end">
-                <div className="flex flex-row gap-3">
-                  <Button variant='outline' type="submit">Cancel</Button>
-                  <Button type="submit">Save Changes</Button>
-                </div>
-              </div>
-            </div>
 
                 </TabsContent>
               </Tabs>
             </div>
-         
-            <SettingsForm1/>
 
-            
+            <SettingsForm1 />
 
-            <p className="py-2 text-lg mt-8  font-semibold">Email Address</p>
+
+
+            <p className="py-2 text-normal mt-8  ">Employee Count</p>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-gray-600">Your email address is <strong>john.doe@company.com</strong></p>
-              
+
+
+              <div className="flex justify-evenly w-full mt-2 dark:border-gray-600/60 dark:text-white">
+
+                <div className=" px-2 py-1 rounded-md ">
+                <Button type="submit" className="rounded-full" size='sm'>1-10</Button>
+                </div>
+
+                <div className=" px-2 py-1 rounded-md ">
+                <Button type="submit" className="rounded-full" size='sm'>10-100</Button>
+                </div>
+
+                <div className=" text-white px-2 py-1 rounded-md ">
+                <Button type="submit" className="rounded-full" size='sm'>100-500</Button>
+                </div>
+
+                <div className=" text-white px-2 py-1 rounded-md ">
+                <Button type="submit" className="rounded-full" size='sm'>1000+</Button>
+                </div>
+
+
+                <div className=" px-2 py-1 rounded-md w-full">
+                  
+                </div>
+
+              </div>
+
             </div>
 
             <SettingsForm />
-        
 
 
-        
+
+
           </div>
         </div>
       </div>
